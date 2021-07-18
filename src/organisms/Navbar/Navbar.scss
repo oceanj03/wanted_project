@@ -1,6 +1,8 @@
 @import '../../Styles/_variables.scss';
 
 .headerContainer{
+  position:fixed;
+  width:100%;
   display:flex;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
@@ -8,7 +10,7 @@
   .headerSpace{
     @include flexSet(row, space-between, center);
     position: relative;
-    width: 1060px;
+    width:1060px;
     margin: 0 auto;
 
       .logoContainer{
@@ -33,7 +35,7 @@
         li{
           display: inline-block;
           position: relative;
-          padding: 20px;
+          padding: 0 20px;
           height: inherit;
           font-size: 13px;
           line-height: 20px;
@@ -47,7 +49,7 @@
           &::after{
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
@@ -56,6 +58,11 @@
             transition: all 0.2s ease-out;
           }
 
+          .searchLink{
+            padding:10px;
+            color:black;
+            text-decoration: none;
+          }
 
           .link{
             color:black;
@@ -76,9 +83,14 @@
           button{
             position: relative;
             margin-top: 5px;
-            padding: 0 10px;
+            padding: 0 8px;
             background-color: inherit;
             border:none;
+
+            img{
+              width:20px;
+              height:20px;
+            }
           }
 
           .profileContainer{
@@ -103,7 +115,7 @@
             width: 1px;
             height: 18px;
             background-color: #e1e2e3;
-            margin: auto 15px;
+            margin: auto 10px;
           }
 
           .service{

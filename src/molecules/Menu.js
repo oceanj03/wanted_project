@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
+import "./Menu.scss"
 
-export default function Menu() {
+export default function Menu(props) {
 
   const [list, setList] = useState([]);
 
@@ -14,38 +15,42 @@ export default function Menu() {
   },[])
 
   return (
-    <div className="overlayContainer">
-      <div className="overlay">
-        <div className="row">
-          <div className="category">
-            {list.map((item,index) => {
-              return(
-                <Link key={index} to={item.major[0].link}>
-                  <h2>
-                  {item.major[0].title}
-                  <i className="fas fa-chevron-right"/>
-                  </h2>
-                </Link>
-              )
-            })}
-            {list.map((obj)=>{
-              return(
-                obj.sub?.map((item,index)=>{
+    <div className="mainContainer">
+      <div className="overlayContainer" onMouseLeave={props.removeDropDown} onMouseEnter={props.createDropDown}>
+        <div className="overlay">
+          <div className="row">
+              {list.map((item) => {
                 return(
-                  <Link key={index} to={item.link}>
-                  <h3>
-                    {item.title}
-                  </h3>
-                </Link>
+                  <div className="category">
+                  {item.major.map((el,index)=>{
+                    return(
+                      <Link key={index} to={el.link} className="text">
+                        <h2>
+                        {el.title}
+                        <i className="fas fa-chevron-right"/>
+                        </h2>
+                      </Link>
+                    )})}
+                  {item.sub?.map((obj,index)=>{
+                      return(
+                        <Link key={index} to={obj.link} className="text">
+                        <h3>
+                        {obj.title}
+                        </h3>
+                        </Link>
+                      )
+                    })}
+                  {item.more && <Link to="#" className="text">
+                    <h3>
+                      더보기
+                      <i className="fas fa-chevron-right"/>
+                    </h3>
+                  </Link>
+                  }
+                </div>
                 )
-              })
-              )
-            })}
-            <Link to="#">
-              <h3>더보기</h3>
-              <i className="fas fa-chevron-right"/>
-            </Link>
-          </div>
+              })}
+            </div>
         </div>
       </div>
     </div>

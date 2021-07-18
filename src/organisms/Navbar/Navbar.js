@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import Menu from '../../molecules/Menu';
 import './Navbar.scss';
 
 export default function Navbar() {
+
+  const [dropDown, setDropDown] = useState(false)
+
+  const createDropDown = () => {
+    setDropDown(true)
+  }
+
+  const removeDropDown = () => {
+    setDropDown(false)
+  }
 
   const MENU = ['커리어 성장', '직군별 연봉', '이력서', '매치업', '프리랜서']
   return (
@@ -17,12 +27,12 @@ export default function Navbar() {
           </div>
           <ul className="menuContainer">
             <li className="search">
-              <Link to ="#" className="link">탐색</Link>
+              <Link to ="#" className="searchLink" onMouseEnter={createDropDown} >탐색</Link>
             </li>
               {MENU.map((item, index) =>{
                 return(
                   <li>
-                    <Link to='#' className="link" key={index}>{item}</Link>
+                    <Link to='#' className="link" key={index} onMouseEnter={removeDropDown}>{item}</Link>
                   </li>
                 )
               })}
@@ -53,7 +63,7 @@ export default function Navbar() {
           </aside>
         </nav>
       </div>
-      <Menu />
+      {dropDown && <Menu isCheck={dropDown} removeDropDown={removeDropDown} createDropDown={createDropDown}/>}
     </>
   )
 }
