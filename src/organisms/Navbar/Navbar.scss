@@ -1,0 +1,122 @@
+@import '../../Styles/_variables.scss';
+
+.headerContainer{
+  display:flex;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
+
+  .headerSpace{
+    @include flexSet(row, space-between, center);
+    position: relative;
+    width: 1060px;
+    margin: 0 auto;
+
+      .logoContainer{
+        margin:15px 0;
+        .logoWrapper{
+          cursor: pointer;
+          text-decoration: none;
+
+          .iconLogo{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            color: black;
+          }
+        }
+      }
+
+      .menuContainer{
+        height: inherit;
+        text-align: center;
+
+        li{
+          display: inline-block;
+          position: relative;
+          padding: 20px;
+          height: inherit;
+          font-size: 13px;
+          line-height: 20px;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:hover::after {
+            width: 100%;
+          }
+  
+          &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: rgba(199, 199, 199, 0.87);
+            transition: all 0.2s ease-out;
+          }
+
+
+          .link{
+            color:black;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .sideHeader{
+        padding: 9px 0;
+
+        li{
+          position: relative;
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+
+          button{
+            position: relative;
+            margin-top: 5px;
+            padding: 0 10px;
+            background-color: inherit;
+            border:none;
+          }
+
+          .profileContainer{
+            margin-right: 5px;
+
+            .profileBorder{
+              img{
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+        }
+        .serviceContainer{
+          &:before{
+            display: inline-block;
+            content: "";
+            width: 1px;
+            height: 18px;
+            background-color: #e1e2e3;
+            margin: auto 15px;
+          }
+
+          .service{
+            font-size: 13px;
+            color: #666;
+            border: 1px solid #e1e2e3;
+            border-radius: 15px;
+            padding: 5px 10px;
+            margin: 0 0 0 15px;
+            font-weight: 400;
+            text-decoration: none;
+          }
+        }
+    }
+  }
+}
