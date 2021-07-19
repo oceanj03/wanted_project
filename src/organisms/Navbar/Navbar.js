@@ -41,18 +41,18 @@ export default function Navbar() {
             <ul>
               <li>
                 <button className="searchIcon">
-                  <img src="/Images/Search.svg"/>
+                  <img src="/Images/Search.svg" alt="search"/>
                 </button>
               </li>
               <li>
                 <button className="bellIcon">
-                  <img src="/Images/Notification.svg"/>
+                  <img src="/Images/Notification.svg" alt="notification"/>
                 </button>
               </li>
               <li>
                 <button className="profileContainer">
                   <div className="profileBorder">
-                    <img src="/Images/profile.jpg"/>
+                    <img src="/Images/profile.jpg" alt="profile"/>
                   </div>
                 </button>
               </li>
@@ -63,7 +63,9 @@ export default function Navbar() {
           </aside>
         </nav>
       </div>
-      {dropDown && <Menu isCheck={dropDown} removeDropDown={removeDropDown} createDropDown={createDropDown}/>}
+      <div className="dropDownWrapper">
+        <Menu isCheck={dropDown} dropDown={dropDown} removeDropDown={removeDropDown} createDropDown={createDropDown}/>
+      </div>
     </>
   )
 }

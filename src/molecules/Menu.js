@@ -15,8 +15,14 @@ export default function Menu(props) {
   },[])
 
   return (
-    <div className="mainContainer">
-      <div className="overlayContainer" onMouseLeave={props.removeDropDown} onMouseEnter={props.createDropDown}>
+    <div className="mainContainer" id={props.dropDown ? 'db' : 'bd'}
+    onMouseLeave={props.removeDropDown} onMouseEnter={props.createDropDown}  
+    style={{
+    opacity:props.dropDown ? 1 : 0.4,
+    height: props.dropDown ? '380px' : '0px',
+    overflow:'hidden',
+  }}>
+      <div className="overlayContainer"  >
         <div className="overlay">
           <div className="row">
               {list.map((item) => {
