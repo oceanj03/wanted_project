@@ -7,11 +7,13 @@
 ## 구현사항
 1. 기본 레이아웃 구현
 
-2. onMouseEnter와 onMouseLeave로 dropdown 메뉴 구현
+2. onMouseEnter와 onMouseLeave로 dropdown 메뉴 생겼다 사라지는 기능 구현
 
-3. 반응형 웹페이지 형태 navbar 새로 만든 후 useEffect, useCallback으로 반응형 웹페이지 구현 
+3. transition 효과로 펼쳐지는 효과 구현
 
-4. 토글 형식으로 화면이 줄어들었을 때 생기는 햄버거 메뉴 클릭 시 나오는 메뉴 구현
+4. 반응형 웹페이지 형태 navbar 새로 만든 후 useEffect, useCallback으로 반응형 웹페이지 구현 
+5. 
+6. 토글 형식으로 화면이 줄어들었을 때 생기는 햄버거 메뉴 클릭 시 나오는 메뉴 구현
 
 ## 기술스택
 
